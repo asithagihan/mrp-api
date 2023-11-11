@@ -1,0 +1,8 @@
+boto3
+requests
+fastapi[all]
+mangum
+fastapi-cognito
+sqlalchemy
+pytest
+pydantic
