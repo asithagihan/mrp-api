@@ -17,3 +17,12 @@ def get(
     db: Session = Depends(get_db),
 ):
     return []
+
+
+@router.get("/", response_model=list[Integration])
+def get(
+    skip: int = 0,
+    limit: int = 100,
+    db: Session = Depends(get_db),
+):
+    return []
