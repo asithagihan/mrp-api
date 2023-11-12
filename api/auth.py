@@ -1,9 +1,14 @@
+import os
 from typing import Optional
 from pydantic_settings import BaseSettings
 from pydantic.types import Any
 from fastapi_cognito import CognitoAuth, CognitoSettings
 from fastapi_cognito import CognitoToken
 from pydantic import Field
+
+APP_CLIENT_ID_1 = os.environ["APP_CLIENT_ID_1"]
+USERPOOL_ID = os.environ["USERPOOL_ID"]
+USERPOOL_REGION = os.environ["USERPOOL_REGION"]
 
 
 class CustomTokenModel(CognitoToken):
@@ -17,12 +22,9 @@ class Settings(BaseSettings):
     jwt_header_name: str = "Authorization"
     userpools: dict[str, dict[str, Any]] = {
         "eu": {
-            "region": "USERPOOL_REGION",
-            "userpool_id": "USERPOOL_ID",
-            "app_client_id": [
-                "APP_CLIENT_ID_1",
-                "APP_CLIENT_ID_2",
-            ],  # Example with multiple ids
+            "region": USERPOOL_REGION,
+            "userpool_id": USERPOOL_ID,
+            "app_client_id": [APP_CLIENT_ID_1],  # Example with multiple ids
         }
     }
 
