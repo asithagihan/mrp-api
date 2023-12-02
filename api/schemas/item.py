@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 
-class InventoryCreate(BaseModel):
+
+class ItemCreate(BaseModel):
     group_id: int = Field(..., gt=0)
     group_name: str = Field(...)
     unit: str = Field(...)
@@ -23,7 +24,8 @@ class InventoryCreate(BaseModel):
     attribute_option_name1: str = Field(...)
     purchase_description: str = Field(...)
 
-class InventoryUpdate(BaseModel):
+
+class ItemUpdate(BaseModel):
     group_id: int = Field(...)
     group_name: str = Field(...)
     unit: str = Field(...)
@@ -46,7 +48,8 @@ class InventoryUpdate(BaseModel):
     attribute_option_name1: str = Field(...)
     purchase_description: str = Field(...)
 
-class Inventory(BaseModel):
+
+class Item(BaseModel):
     id: int
     group_id: int
     group_name: str

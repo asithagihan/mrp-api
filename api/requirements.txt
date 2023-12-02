@@ -6,3 +6,4 @@ fastapi-cognito
 sqlalchemy
 pytest
 pydantic
+fastapi-crudrouter

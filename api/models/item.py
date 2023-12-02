@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, JSON
 from sqlalchemy.orm import relationship, backref
-from item_bill_of_materials import item_bill_of_materials_table
+from api.models.bill_of_material_item import item_bill_of_materials_table
 
 from database import Base
 
@@ -31,7 +31,7 @@ class Item(Base):
     attribute_option_name1 = Column(String(255))
     purchase_description = Column(String(255))
 
-    bill_of_materials = relationship(
+    bill_of_material = relationship(
         "BillOfMaterials",
         secondary=item_bill_of_materials_table,
         back_populates="items",
